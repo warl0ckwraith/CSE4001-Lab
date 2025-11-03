@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        #display {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #0066cc;
+            min-height: 50px;
+        }
+        canvas {
+            border: 2px solid #333;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>English Alphabet Chart</h1>
+    <p>Click on any letter to see an example</p>
+
+    <canvas id="alphabetCanvas" width="800" height="200"></canvas>
+
+    <div id="display">Click a letter above!</div>
+
+    <script>
+        const canvas = document.getElementById('alphabetCanvas');
+        const ctx = canvas.getContext('2d');
+        const display = document.getElementById('display');
+
+        // Examples for each letter
+        const examples = {
+            'A': 'A for Apple', 'B': 'B for Ball', 'C': 'C for Cat',
+            'D': 'D for Dog', 'E': 'E for Elephant', 'F': 'F for Fish',
+            'G': 'G for Grapes', 'H': 'H for Hat', 'I': 'I for Ice Cream',
+            'J': 'J for Jug', 'K': 'K for Kite', 'L': 'L for Lion',
+            'M': 'M for Monkey', 'N': 'N for Nest', 'O': 'O for Orange',
+            'P': 'P for Parrot', 'Q': 'Q for Queen', 'R': 'R for Rabbit',
+            'S': 'S for Sun', 'T': 'T for Tiger', 'U': 'U for Umbrella',
+            'V': 'V for Van', 'W': 'W for Watch', 'X': 'X for Xylophone',
+            'Y': 'Y for Yak', 'Z': 'Z for Zebra'
+        };
+
+        // Letter positions for mapping
+        const letterMap = [];
+
+        // Draw alphabet grid
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const cols = 13; // 13 letters per row
+        const letterWidth = 60;
+        const letterHeight = 80;
+        const startX = 10;
+        const startY = 20;
+
+        ctx.font = 'bold 40px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        for (let i = 0; i < alphabet.length; i++) {
+            const letter = alphabet[i];
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            const x = startX + col * letterWidth;
+            const y = startY + row * letterHeight;
+
+            // Draw letter
+            ctx.fillStyle = '#333';
+            ctx.fillText(letter, x + 30, y + 40);
+
+            // Store position for click detection
+            letterMap.push({
+                letter: letter,
+                x: x,
+                y: y,
+                width: letterWidth,
+                height: letterHeight
+            });
+        }
+
+        // Handle clicks
+        canvas.addEventListener('click', function(event) {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+            // Find which letter was clicked
+            for (let item of letterMap) {
+                if (clickX >= item.x && clickX <= item.x + item.width &&
+                    clickY >= item.y && clickY <= item.y + item.height) {
+                    display.textContent = examples[item.letter];
+                    display.style.color = '#0066cc';
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
