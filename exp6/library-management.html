@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+        <p>Manage Your Books and Members Efficiently</p>
+    </header>
+
+    <nav>
+        <a href="#books">Books</a>
+        <a href="#members">Members</a>
+        <a href="#issue">Issue Book</a>
+        <a href="#return">Return Book</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Books Section -->
+        <div id="books" class="section">
+            <h2>Available Books</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>B001</td>
+                        <td>Introduction to Algorithms</td>
+                        <td>Thomas H. Cormen</td>
+                        <td>Computer Science</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>B002</td>
+                        <td>Clean Code</td>
+                        <td>Robert C. Martin</td>
+                        <td>Programming</td>
+                        <td>Issued</td>
+                    </tr>
+                    <tr>
+                        <td>B003</td>
+                        <td>The Great Gatsby</td>
+                        <td>F. Scott Fitzgerald</td>
+                        <td>Fiction</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>B004</td>
+                        <td>Data Structures</td>
+                        <td>Seymour Lipschutz</td>
+                        <td>Computer Science</td>
+                        <td>Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add New Book Form -->
+        <div class="section">
+            <h2>Add New Book</h2>
+            <form>
+                <div class="form-row">
+                    <label for="bookId">Book ID:</label>
+                    <input type="text" id="bookId" name="bookId" required>
+                </div>
+                <div class="form-row">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-row">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="form-row">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="cs">Computer Science</option>
+                        <option value="prog">Programming</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                    </select>
+                </div>
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+
+        <!-- Members Section -->
+        <div id="members" class="section">
+            <h2>Library Members</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Membership Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M001</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>9876543210</td>
+                        <td>Premium</td>
+                    </tr>
+                    <tr>
+                        <td>M002</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>9876543211</td>
+                        <td>Regular</td>
+                    </tr>
+                    <tr>
+                        <td>M003</td>
+                        <td>Mike Johnson</td>
+                        <td>mike@example.com</td>
+                        <td>9876543212</td>
+                        <td>Student</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add New Member Form -->
+        <div class="section">
+            <h2>Register New Member</h2>
+            <form>
+                <div class="form-row">
+                    <label for="memberId">Member ID:</label>
+                    <input type="text" id="memberId" name="memberId" required>
+                </div>
+                <div class="form-row">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-row">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-row">
+                    <label for="membershipType">Membership Type:</label>
+                    <select id="membershipType" name="membershipType">
+                        <option value="student">Student</option>
+                        <option value="regular">Regular</option>
+                        <option value="premium">Premium</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="3"></textarea>
+                </div>
+                <button type="submit">Register Member</button>
+            </form>
+        </div>
+
+        <!-- Issue Book Form -->
+        <div id="issue" class="section">
+            <h2>Issue Book</h2>
+            <form>
+                <div class="form-row">
+                    <label for="issueBookId">Book ID:</label>
+                    <input type="text" id="issueBookId" name="issueBookId" required>
+                </div>
+                <div class="form-row">
+                    <label for="issueMemberId">Member ID:</label>
+                    <input type="text" id="issueMemberId" name="issueMemberId" required>
+                </div>
+                <div class="form-row">
+                    <label for="issueDate">Issue Date:</label>
+                    <input type="date" id="issueDate" name="issueDate" required>
+                </div>
+                <div class="form-row">
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="dueDate" required>
+                </div>
+                <button type="submit">Issue Book</button>
+            </form>
+        </div>
+
+        <!-- Return Book Form -->
+        <div id="return" class="section">
+            <h2>Return Book</h2>
+            <form>
+                <div class="form-row">
+                    <label for="returnBookId">Book ID:</label>
+                    <input type="text" id="returnBookId" name="returnBookId" required>
+                </div>
+                <div class="form-row">
+                    <label for="returnMemberId">Member ID:</label>
+                    <input type="text" id="returnMemberId" name="returnMemberId" required>
+                </div>
+                <div class="form-row">
+                    <label for="returnDate">Return Date:</label>
+                    <input type="date" id="returnDate" name="returnDate" required>
+                </div>
+                <div class="form-row">
+                    <label for="condition">Book Condition:</label>
+                    <select id="condition" name="condition">
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="damaged">Damaged</option>
+                    </select>
+                </div>
+                <button type="submit">Return Book</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Library Management System. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
