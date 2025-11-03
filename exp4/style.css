@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 5px;
+    max-width: 1400px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.element {
+    aspect-ratio: 1;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.element:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.number {
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.symbol {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.name {
+    font-size: 0.6em;
+    margin-top: 2px;
+}
+
+/* Element categories with colors */
+.alkali {
+    background: #ff6b6b;
+    color: white;
+}
+
+.alkaline {
+    background: #feca57;
+    color: #333;
+}
+
+.transition {
+    background: #48dbfb;
+    color: white;
+}
+
+.metal {
+    background: #54a0ff;
+    color: white;
+}
+
+.metalloid {
+    background: #1dd1a1;
+    color: white;
+}
+
+.nonmetal {
+    background: #10ac84;
+    color: white;
+}
+
+.halogen {
+    background: #ff9ff3;
+    color: #333;
+}
+
+.noble-gas {
+    background: #c7ecee;
+    color: #333;
+}
+
+.lanthanide {
+    background: #f093fb;
+    color: white;
+}
+
+.actinide {
+    background: #fa709a;
+    color: white;
+}
+
+/* Legend */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.legend-item span {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .periodic-table {
+        gap: 3px;
+    }
+
+    .element {
+        padding: 5px;
+    }
+
+    .symbol {
+        font-size: 1.2em;
+    }
+
+    .name {
+        font-size: 0.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .periodic-table {
+        gap: 2px;
+        padding: 10px;
+    }
+
+    .element {
+        padding: 3px;
+    }
+
+    .number {
+        font-size: 0.5em;
+    }
+
+    .symbol {
+        font-size: 1em;
+    }
+
+    .name {
+        display: none;
+    }
+}
